@@ -16,7 +16,7 @@ SYNOPSIS
     Take snapshots of Google Compute Engine disks
 
 SYNTAX
-    D:\Temp\google-compute-snapshot-win\gcloud-snapshot.ps1 [[-retention] <Int32>] [-copylabels] [[-prefix] <String>]
+    .\gcloud-snapshot.ps1 [[-retention] <Int32>] [-copylabels] [[-prefix] <String>]
     [[-account] <String>] [[-project] <String>] [[-storage] <String>] [[-labels] <String>] [-dryrun]
     [<CommonParameters>]
 
