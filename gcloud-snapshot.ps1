@@ -166,7 +166,7 @@ Function Delete-Snapshots {
 	[Parameter(Mandatory=$true)][string]$DeviceId
   )
   # filter with creationTimestamp<"YYYYmmdd" doesn't work with Powershell :(
-  $snapshotList = gcloud compute snapshots list --filter="name~'^$SnapshotPrefix-.*' AND sourceDiskId=$DeviceId" --format="value(name)"
+  $snapshotList = gcloud $optAccount compute snapshots list --filter="name~'^$SnapshotPrefix-.*' AND sourceDiskId=$DeviceId" --format="value(name)"
   
   Foreach ($snapshot in $snapshotList) {
 	# get created date for snapshot
@@ -181,7 +181,7 @@ Function Get-SnapshotCreatedDate {
   param (
   [Parameter(Mandatory=$true)][string]$SnapshotName
   )
-  $snapshotDatetime = gcloud compute snapshots describe $SnapshotName --format="value(creationTimestamp)"
+  $snapshotDatetime = gcloud $optAccount compute snapshots describe $SnapshotName --format="value(creationTimestamp)"
   $snapshotDatetime.split('T')[0] -replace '-'
 }
 
